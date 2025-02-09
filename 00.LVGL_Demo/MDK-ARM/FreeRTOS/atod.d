@@ -43,3 +43,4 @@ freertos\atod.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 freertos\atod.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 freertos\atod.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 freertos\atod.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
+freertos\atod.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h

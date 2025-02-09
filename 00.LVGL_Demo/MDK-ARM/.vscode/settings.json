@@ -19,6 +19,8 @@
         "freertosconfig.h": "c",
         "key.h": "c",
         "queue.h": "c",
-        "led.h": "c"
+        "led.h": "c",
+        "pwm1.h": "c",
+        "spihard.h": "c"
     }
 }

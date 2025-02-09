@@ -42,6 +42,7 @@ freertos\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 freertos\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 freertos\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 freertos\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
+freertos\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h
 freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 freertos\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -55,11 +56,8 @@ freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 freertos\main.o: ../Core/Inc/usart.h
 freertos\main.o: ../Core/Inc/gpio.h
-freertos\main.o: ../Core/Inc/Timer.h
-freertos\main.o: D:\ARM\ARMCC\Bin\..\include\stdio.h
+freertos\main.o: ../Core/Inc/SPIHard.h
+freertos\main.o: ../Core/Inc/PWM1.h
 freertos\main.o: ..\BSP\key.h
 freertos\main.o: ..\SYSTEM\delay.h
-freertos\main.o: ..\BSP\AToD.h
-freertos\main.o: ..\BSP\OLED.h
-freertos\main.o: ..\BSP\OLED_Data.h
 freertos\main.o: ..\BSP\LED.h

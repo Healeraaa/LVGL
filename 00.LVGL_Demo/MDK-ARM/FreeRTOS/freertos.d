@@ -51,6 +51,7 @@ freertos\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 freertos\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 freertos\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 freertos\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
+freertos\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 freertos\freertos.o: ..\Tasks\Inc\User_TasksInit.h

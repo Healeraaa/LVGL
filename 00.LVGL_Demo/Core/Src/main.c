@@ -2,17 +2,18 @@
 #include "cmsis_os.h"
 #include "usart.h"
 #include "gpio.h"
+#include "SPIHard.h"
+#include "PWM1.h"
 /* Private includes ----------------------------------------------------------*/
-#include "Timer.h"
+// #include "Timer.h"
 #include "key.h"
 #include "delay.h"
-#include "AToD.h"
-#include "OLED.h"
+// #include "AToD.h"
+// #include "OLED.h"
 #include "LED.h"
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-// void MX_FREERTOS_Init(void);
 
 int main(void)
 {
@@ -20,12 +21,15 @@ int main(void)
   HAL_Init();
   Key_Init();
   LED_Init();
+  SPI1_Init();
+  PWM1_Init();
   SystemClock_Config();
 
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   delay_init(168);
+  PWM1_SetDutyCycle(50);
   /* USER CODE END 2 */
   osKernelInitialize();
   MX_FREERTOS_Init();//任务初始化

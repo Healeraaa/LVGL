@@ -43,6 +43,7 @@ freertos\key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h
 freertos\key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 freertos\key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 freertos\key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
+freertos\key.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h
 freertos\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 freertos\key.o: ../Core/Inc/FreeRTOSConfig.h
 freertos\key.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h

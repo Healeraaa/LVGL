@@ -17,7 +17,7 @@ freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/qu
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
-freertos\user_tasksinit.o: ..\BSP\AToD.h
+freertos\user_tasksinit.o: ../Core/Inc/SPIHard.h
 freertos\user_tasksinit.o: ../Core/Inc/main.h
 freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 freertos\user_tasksinit.o: ../Core/Inc/stm32f4xx_hal_conf.h
@@ -59,8 +59,6 @@ freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usar
 freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h
 freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
+freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h
 freertos\user_tasksinit.o: D:\ARM\ARMCC\Bin\..\include\stdio.h
-freertos\user_tasksinit.o: ..\BSP\OLED.h
-freertos\user_tasksinit.o: ..\BSP\OLED_Data.h
-freertos\user_tasksinit.o: ..\BSP\key.h
 freertos\user_tasksinit.o: ..\BSP\LED.h

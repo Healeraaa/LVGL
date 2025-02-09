@@ -41,6 +41,7 @@ extern "C" {
 #include "stm32f4xx_ll_gpio.h"
 #include "stm32f4xx_ll_tim.h"
 #include "stm32f4xx_ll_adc.h"
+#include "stm32f4xx_ll_spi.h"
 
 
 /* Private includes ----------------------------------------------------------*/
