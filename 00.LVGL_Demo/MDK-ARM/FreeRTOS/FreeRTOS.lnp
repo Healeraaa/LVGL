@@ -51,6 +51,7 @@
 "freertos\oled.o"
 "freertos\oled_data.o"
 "freertos\led.o"
+"freertos\lcd_init.o"
 "freertos\delay.o"
 "freertos\user_tasksinit.o"
 --library_type=microlib --strict --scatter "FreeRTOS\FreeRTOS.sct"

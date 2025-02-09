@@ -851,6 +851,16 @@
               <FileType>5</FileType>
               <FilePath>..\BSP\LED.h</FilePath>
             </File>
+            <File>
+              <FileName>Lcd_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\Lcd_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>Lcd_init.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\Lcd_init.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
