@@ -43,12 +43,22 @@ void SPI1_Init(void)
   LL_SPI_Enable(SPI1);
 }
 
-uint8_t SPI1_Transmit(uint8_t data)
+void SPI1_Transmit8(uint8_t data)
 {
   // 等待发送缓冲区为空（可以写入新数据）
   while (!LL_SPI_IsActiveFlag_TXE(SPI1)){}
   // 发送数据
   LL_SPI_TransmitData8(SPI1, data);
+  // 等待发送完成（确保数据从移位寄存器中发送出去）
+  while (LL_SPI_IsActiveFlag_BSY(SPI1)){}
+}
+
+void SPI1_Transmit16(uint16_t data)
+{
+  // 等待发送缓冲区为空（可以写入新数据）
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1)){}
+  // 发送数据
+  LL_SPI_TransmitData16(SPI1, data);
   // 等待发送完成（确保数据从移位寄存器中发送出去）
   while (LL_SPI_IsActiveFlag_BSY(SPI1)){}
 }

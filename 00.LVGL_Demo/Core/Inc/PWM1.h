@@ -5,6 +5,8 @@
 
 void PWM1_Init(void);
 void PWM1_SetDutyCycle(uint8_t duty_cycle);
+void PWM1_Disable(void);
+void PWM1_Enable(void);
 
 
 #endif 

@@ -27,16 +27,17 @@ Project File Date:  02/09/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\ARM\ARMCC\Bin'
 Build target 'FreeRTOS'
+compiling PWM1.c...
+..\Core\Src\PWM1.c(111): warning:  #1-D: last line of file ends without a newline
+  }
+..\Core\Src\PWM1.c: 1 warning, 0 errors
 compiling Lcd_init.c...
-..\BSP\Lcd_init.c(1): warning:  #1-D: last line of file ends without a newline
-  #include "Lcd_init.h"
-..\BSP\Lcd_init.c: 1 warning, 0 errors
 compiling main.c...
-../Core/Src/main.c(35): warning:  #223-D: function "MX_FREERTOS_Init" declared implicitly
+../Core/Src/main.c(34): warning:  #223-D: function "MX_FREERTOS_Init" declared implicitly
     MX_FREERTOS_Init();//任务初始�?
 ../Core/Src/main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=14616 RO-data=464 RW-data=160 ZI-data=19744  
+Program Size: Code=15260 RO-data=464 RW-data=160 ZI-data=19744  
 FromELF: creating hex file...
 "FreeRTOS\FreeRTOS.axf" - 0 Error(s), 2 Warning(s).
 
@@ -61,7 +62,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Build Time Elapsed:  00:00:10
+Build Time Elapsed:  00:00:13
 </pre>
 </body>
 </html>

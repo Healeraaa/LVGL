@@ -87,3 +87,25 @@ void PWM1_SetDutyCycle(uint8_t duty_cycle)
   // 设置 TIM3 通道 3 的比较值
   LL_TIM_OC_SetCompareCH3(TIM3, compare_value);
 }
+
+/**
+  * @brief  关闭 TIM3 通道 3 的 PWM 输出
+  * @param  None
+  * @retval None
+  */
+void PWM1_Disable(void)
+{
+  // 禁用 TIM3 通道 3 的输出
+  LL_TIM_CC_DisableChannel(TIM3, LL_TIM_CHANNEL_CH3);
+}
+
+/**
+  * @brief  开启 TIM3 通道 3 的 PWM 输出
+  * @param  None
+  * @retval None
+  */
+void PWM1_Enable(void)
+{
+  // 使能 TIM3 通道 3 的输出
+  LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH3);
+}

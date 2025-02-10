@@ -4,7 +4,8 @@
 #include "main.h"
 
 void SPI1_Init(void);
-uint8_t SPI1_Transmit(uint8_t data);
+void SPI1_Transmit8(uint8_t data);
+void SPI1_Transmit16(uint16_t data);
 
 
 

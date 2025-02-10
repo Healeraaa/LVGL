@@ -1,6 +1,5 @@
 /* Private includes -----------------------------------------------------------*/
 #include "user_TasksInit.h"
-#include "SPIHard.h"
 #include "stdio.h"
 // #include "OLED.h"
 // #include "key.h"
@@ -32,7 +31,6 @@ void SPITEST_Task(void *argument)
   uint8_t data = 0;
   while (1)
   {
-    SPI1_Transmit(++data);
     vTaskDelay(1000);
   }
   
