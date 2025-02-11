@@ -861,6 +861,21 @@
               <FileType>5</FileType>
               <FilePath>..\BSP\Lcd_init.h</FilePath>
             </File>
+            <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\LCD.h</FilePath>
+            </File>
+            <File>
+              <FileName>lcdfont.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\lcdfont.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -22,24 +22,30 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 D:\STM32Cube\STM32F407Project\Learn_LVGL\00.LVGL_Demo\MDK-ARM\FreeRTOS.uvprojx
-Project File Date:  02/09/2025
+Project File Date:  02/11/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\ARM\ARMCC\Bin'
 Build target 'FreeRTOS'
-compiling PWM1.c...
-..\Core\Src\PWM1.c(111): warning:  #1-D: last line of file ends without a newline
-  }
-..\Core\Src\PWM1.c: 1 warning, 0 errors
-compiling Lcd_init.c...
-compiling main.c...
-../Core/Src/main.c(34): warning:  #223-D: function "MX_FREERTOS_Init" declared implicitly
-    MX_FREERTOS_Init();//任务初始�?
-../Core/Src/main.c: 1 warning, 0 errors
-linking...
-Program Size: Code=15260 RO-data=464 RW-data=160 ZI-data=19744  
-FromELF: creating hex file...
-"FreeRTOS\FreeRTOS.axf" - 0 Error(s), 2 Warning(s).
+compiling LCD.c...
+..\BSP\LCD.c(44): warning:  #177-D: variable "i"  was declared but never referenced
+  	uint16_t i,j,width,height; 
+..\BSP\LCD.c(44): warning:  #177-D: variable "j"  was declared but never referenced
+  	uint16_t i,j,width,height; 
+..\BSP\LCD.c(50): warning:  #177-D: variable "size"  was declared but never referenced
+      uint32_t size = width * height;
+..\BSP\LCD.c(183): warning:  #223-D: function "LCD_ShowChinese12x12" declared implicitly
+  		if(sizey==12) LCD_ShowChinese12x12(x,y,s,fc,bc,sizey,mode);
+..\BSP\LCD.c(184): warning:  #223-D: function "LCD_ShowChinese16x16" declared implicitly
+  		else if(sizey==16) LCD_ShowChinese16x16(x,y,s,fc,bc,sizey,mode);
+..\BSP\LCD.c(185): warning:  #223-D: function "LCD_ShowChinese24x24" declared implicitly
+  		else if(sizey==24) LCD_ShowChinese24x24(x,y,s,fc,bc,sizey,mode);
+..\BSP\LCD.c(186): warning:  #223-D: function "LCD_ShowChinese32x32" declared implicitly
+  		else if(sizey==32) LCD_ShowChinese32x32(x,y,s,fc,bc,sizey,mode);
+..\BSP\LCD.c(203): error:  #159: declaration is incompatible with previous "LCD_ShowChinese12x12"  (declared at line 183)
+  void LCD_ShowChinese12x12(uint16_t x,uint16_t y,uint8_t *s,uint16_t fc,uint16_t bc,uint8_t sizey,uint8_t mode)
+..\BSP\LCD.c: 7 warnings, 1 error
+"FreeRTOS\FreeRTOS.axf" - 1 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +68,8 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Build Time Elapsed:  00:00:13
+Target not created.
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

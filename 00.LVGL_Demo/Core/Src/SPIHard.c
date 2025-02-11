@@ -62,3 +62,20 @@ void SPI1_Transmit16(uint16_t data)
   // 等待发送完成（确保数据从移位寄存器中发送出去）
   while (LL_SPI_IsActiveFlag_BSY(SPI1)){}
 }
+
+/**
+ * @brief  SPI1 数据位宽转换
+ * @param  dataWidth This parameter can be one of the following values:
+          @arg @ref LL_SPI_DATAWIDTH_8BIT
+          @arg @ref LL_SPI_DATAWIDTH_16BIT
+ * @retval None
+ */
+void SPI1_SetDataWidth(uint32_t dataWidth)
+{
+  // 禁用 SPI，准备更改配置
+  LL_SPI_Disable(SPI1);
+  // 设置新的数据位宽（8位或16位）
+  LL_SPI_SetDataWidth(SPI1, dataWidth);
+  // 启用 SPI
+  LL_SPI_Enable(SPI1);
+}
