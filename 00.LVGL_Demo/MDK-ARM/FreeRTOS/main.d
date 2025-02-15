@@ -57,6 +57,7 @@ freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_
 freertos\main.o: ../Core/Inc/usart.h
 freertos\main.o: ../Core/Inc/gpio.h
 freertos\main.o: ..\BSP\Lcd_init.h
+freertos\main.o: ..\BSP\LCD.h
 freertos\main.o: ..\BSP\key.h
 freertos\main.o: ..\SYSTEM\delay.h
 freertos\main.o: ..\BSP\LED.h
