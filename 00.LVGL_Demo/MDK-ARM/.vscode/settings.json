@@ -21,6 +21,7 @@
         "queue.h": "c",
         "led.h": "c",
         "pwm1.h": "c",
-        "spihard.h": "c"
+        "spihard.h": "c",
+        "lcd_init.h": "c"
     }
 }

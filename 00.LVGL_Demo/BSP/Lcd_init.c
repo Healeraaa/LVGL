@@ -3,6 +3,24 @@
 #include "PWM1.h"
 #include "delay.h"
 
+
+void MyGPIO_SetPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+    WRITE_REG(GPIOx->BSRR, PinMask);
+    while ((READ_BIT(GPIOx->ODR, PinMask) == (PinMask)) == 0){}
+    return;
+}
+
+void MyGPIO_ReSetPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
+{
+    WRITE_REG(GPIOx->BSRR, (PinMask << 16));
+    while ((READ_BIT(GPIOx->ODR, PinMask) == (PinMask)) == 1){}
+    return;
+}
+
+
+
+
 /**
  * @brief  对LCD的GPIO引脚进行初始化
  * @param  None
@@ -66,7 +84,9 @@ void LCD_WR_DATA8(uint8_t data)
  */
 void LCD_WR_DATA(uint16_t Data)
 {
+    SPI1_SetDataWidth(LL_SPI_DATAWIDTH_16BIT);
     SPI1_Transmit16(Data);
+    SPI1_SetDataWidth(LL_SPI_DATAWIDTH_8BIT);
 }
 
 /**
@@ -77,8 +97,10 @@ void LCD_WR_DATA(uint16_t Data)
 void LCD_WR_REG(uint8_t data)
 {
     LCD_DC_Reset(); // 写命令
+    // delay_ms(1);
     LCD_Write_Bus(data);
     LCD_DC_Set(); // 写数据
+    // delay_ms(1);
 }
 
 /**
@@ -157,58 +179,59 @@ void LCD_Init(void)
     SPI1_Init();     // 初始化Hard SPI
     PWM1_Init();     // 初始化PWM输出
     LCD_GPIO_Init(); // 初始化GPIO
+    delay_ms(100);
     LCD_CS_Reset();  // chip select
 
     LCD_RES_Reset(); // 复位
-    PWM1_SetDutyCycle(50);
+    // PWM1_SetDutyCycle(50);
     delay_ms(100);
     LCD_RES_Set();
     delay_ms(100);
 
-    LCD_WR_REG(0x11);
+    LCD_WR_REG(0x11);//Sleep Out
     delay_ms(120);
-    LCD_WR_REG(0x36);
+    LCD_WR_REG(0x36);//Memory Data Access Control 内存数据访问控制
     if(USE_HORIZONTAL==0)LCD_WR_DATA8(0x00);
 	else if(USE_HORIZONTAL==1)LCD_WR_DATA8(0xC0);
 	else if(USE_HORIZONTAL==2)LCD_WR_DATA8(0x70);
 	else LCD_WR_DATA8(0xA0);
 
-	LCD_WR_REG(0x3A);
-	LCD_WR_DATA8(0x05);
+	LCD_WR_REG(0x3A);//Interface Pixel Format 接口像素格式
+	LCD_WR_DATA8(0x05);//Control interface color format：16位/像素
 
-	LCD_WR_REG(0xB2);
+	LCD_WR_REG(0xB2);//Porch Setting
 	LCD_WR_DATA8(0x0C);
 	LCD_WR_DATA8(0x0C);
 	LCD_WR_DATA8(0x00);
 	LCD_WR_DATA8(0x33);
 	LCD_WR_DATA8(0x33); 
 
-	LCD_WR_REG(0xB7); 
+	LCD_WR_REG(0xB7); //Gate Control
 	LCD_WR_DATA8(0x35);  
 
-	LCD_WR_REG(0xBB);
-	LCD_WR_DATA8(0x19);
+	LCD_WR_REG(0xBB);//VCOMS Setting
+	LCD_WR_DATA8(0x19);//0.729V
 
-	LCD_WR_REG(0xC0);
-	LCD_WR_DATA8(0x2C);
+	LCD_WR_REG(0xC0);//LCM Control
+	LCD_WR_DATA8(0x2C);//默认
 
-	LCD_WR_REG(0xC2);
-	LCD_WR_DATA8(0x01);
+	LCD_WR_REG(0xC2);//VDV and VRH Command Enable
+	LCD_WR_DATA8(0x01);//默认设置
 
-	LCD_WR_REG(0xC3);
-	LCD_WR_DATA8(0x12);   
+	LCD_WR_REG(0xC3);//VRH Set
+	LCD_WR_DATA8(0x12);//4.45+( vcom+vcom offset+0.5vdv )   
 
-	LCD_WR_REG(0xC4);
-	LCD_WR_DATA8(0x20);  
+	LCD_WR_REG(0xC4);//VDV Set
+	LCD_WR_DATA8(0x20);//默认  
 
-	LCD_WR_REG(0xC6); 
-	LCD_WR_DATA8(0x0F);    
+	LCD_WR_REG(0xC6); //Frame Rate Control in Normal Mode
+	LCD_WR_DATA8(0x0F);//默认 60HZ    
 
-	LCD_WR_REG(0xD0); 
-	LCD_WR_DATA8(0xA4);
-	LCD_WR_DATA8(0xA1);
+	LCD_WR_REG(0xD0); //Power Control 1
+	LCD_WR_DATA8(0xA4);//默认
+	LCD_WR_DATA8(0xA1);// AVDD:6.8V;AVCL:-4.8V;VDDS:2.3V
 
-	LCD_WR_REG(0xE0);
+	LCD_WR_REG(0xE0);//Positive Voltage Gamma Control
 	LCD_WR_DATA8(0xD0);
 	LCD_WR_DATA8(0x04);
 	LCD_WR_DATA8(0x0D);
@@ -243,4 +266,7 @@ void LCD_Init(void)
 	LCD_WR_REG(0x21); 
 
 	LCD_WR_REG(0x29); 
+
+ 
 }
+

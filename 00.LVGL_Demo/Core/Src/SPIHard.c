@@ -30,7 +30,7 @@ void SPI1_Init(void)
   SPI_InitStruct.ClockPolarity = LL_SPI_POLARITY_HIGH;           // 时钟极性为高电平
   SPI_InitStruct.ClockPhase = LL_SPI_PHASE_2EDGE;                // 时钟相位为第二个边沿采样
   SPI_InitStruct.NSS = LL_SPI_NSS_SOFT;                          // 软件控制NSS信号
-  SPI_InitStruct.BaudRate = LL_SPI_BAUDRATEPRESCALER_DIV128;       // 波特率预分频为128
+  SPI_InitStruct.BaudRate = LL_SPI_BAUDRATEPRESCALER_DIV2;      // 波特率预分频为2
   SPI_InitStruct.BitOrder = LL_SPI_MSB_FIRST;                    // 高位先发送
   SPI_InitStruct.CRCCalculation = LL_SPI_CRCCALCULATION_DISABLE; // 禁用CRC计算
   SPI_InitStruct.CRCPoly = 10;                                   // CRC多项式（未使用）
@@ -43,13 +43,16 @@ void SPI1_Init(void)
   LL_SPI_Enable(SPI1);
 }
 
+
 void SPI1_Transmit8(uint8_t data)
 {
   // 等待发送缓冲区为空（可以写入新数据）
   while (!LL_SPI_IsActiveFlag_TXE(SPI1)){}
   // 发送数据
   LL_SPI_TransmitData8(SPI1, data);
-  // 等待发送完成（确保数据从移位寄存器中发送出去）
+  // 等待数据从发送缓冲区转移到移位寄存器
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1)){}
+  // 等待 SPI 总线空闲（数据从移位寄存器发送完成）
   while (LL_SPI_IsActiveFlag_BSY(SPI1)){}
 }
 
@@ -60,6 +63,7 @@ void SPI1_Transmit16(uint16_t data)
   // 发送数据
   LL_SPI_TransmitData16(SPI1, data);
   // 等待发送完成（确保数据从移位寄存器中发送出去）
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1)){}
   while (LL_SPI_IsActiveFlag_BSY(SPI1)){}
 }
 

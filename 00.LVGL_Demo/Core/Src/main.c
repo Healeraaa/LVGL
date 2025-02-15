@@ -5,6 +5,7 @@
 /* Private includes ----------------------------------------------------------*/
 // #include "Timer.h"
 #include "Lcd_init.h"
+#include "LCD.h"
 #include "key.h"
 #include "delay.h"
 // #include "AToD.h"
@@ -28,7 +29,17 @@ int main(void)
   /* USER CODE BEGIN 2 */
   delay_init(168);
 
-  LCD_Init();
+  // 	//lcd
+  delay_ms(100);
+	LCD_Init();
+  delay_ms(1000);
+	LCD_Fill(0,0,LCD_W,LCD_H,WHITE);
+	delay_ms(10);
+  // LCD_Set_Light(50);
+	LCD_ShowString(72,LCD_H/2-20,(uint8_t*)"Welcome!",WHITE,BLACK,24,0);//12*6,16*8,24*12,32*16
+	delay_ms(1000);
+	LCD_Fill(0,0,LCD_W,LCD_H,WHITE);
+
   /* USER CODE END 2 */
   osKernelInitialize();
   MX_FREERTOS_Init();//任务初始化
@@ -36,7 +47,8 @@ int main(void)
 
   while (1)
   {
-
+    LED_Reveral();
+    delay_ms(1000);
   }
 }
 

@@ -42,16 +42,9 @@
 #define BLK_PIN				GPIO_PIN_0
 */
 
-#define LCD_RES_Reset()     LL_GPIO_ResetOutputPin(RES_PORT, RES_PIN)//RESET
-#define LCD_RES_Set()       LL_GPIO_SetOutputPin(RES_PORT, RES_PIN)
 
-#define LCD_DC_Reset()      LL_GPIO_ResetOutputPin(DC_PORT, DC_PIN)//DC
-#define LCD_DC_Set()        LL_GPIO_SetOutputPin(DC_PORT, DC_PIN)
- 		     
-#define LCD_CS_Reset()      LL_GPIO_ResetOutputPin(CS_PORT, CS_PIN)//CS
-#define LCD_CS_Set()        LL_GPIO_SetOutputPin(CS_PORT, CS_PIN)
-
-
+void MyGPIO_SetPin(GPIO_TypeDef *GPIOx, uint32_t PinMask);
+void MyGPIO_ReSetPin(GPIO_TypeDef *GPIOx, uint32_t PinMask);
 void LCD_GPIO_Init(void);//初始化GPIO
 void LCD_Write_Bus(uint8_t data);//模拟SPI时序
 void LCD_WR_DATA8(uint8_t data);//写入一个字节
@@ -65,6 +58,14 @@ void LCD_ST7789_SleepIn(void);
 void LCD_ST7789_SleepOut(void);
 void LCD_Open_Light(void);
 
+#define LCD_RES_Reset()     MyGPIO_ReSetPin(RES_PORT, RES_PIN)//RESET
+#define LCD_RES_Set()       MyGPIO_SetPin(RES_PORT, RES_PIN)
+
+#define LCD_DC_Reset()      MyGPIO_ReSetPin(DC_PORT, DC_PIN)//DC
+#define LCD_DC_Set()        MyGPIO_SetPin(DC_PORT, DC_PIN)
+ 		     
+#define LCD_CS_Reset()      MyGPIO_ReSetPin(CS_PORT, CS_PIN)//CS
+#define LCD_CS_Set()        MyGPIO_SetPin(CS_PORT, CS_PIN)
 
 
 
