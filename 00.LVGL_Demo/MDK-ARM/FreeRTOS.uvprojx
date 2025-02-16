@@ -876,6 +876,16 @@
               <FileType>5</FileType>
               <FilePath>..\BSP\lcdfont.h</FilePath>
             </File>
+            <File>
+              <FileName>IIC_Soft.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\IIC_Soft.c</FilePath>
+            </File>
+            <File>
+              <FileName>IIC_Soft.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\IIC_Soft.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
