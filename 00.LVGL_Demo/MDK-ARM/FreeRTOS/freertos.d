@@ -1,7 +1,7 @@
 freertos\freertos.o: ../Core/Src/freertos.c
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-freertos\freertos.o: D:\ARM\ARMCC\Bin\..\include\stddef.h
-freertos\freertos.o: D:\ARM\ARMCC\Bin\..\include\stdint.h
+freertos\freertos.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+freertos\freertos.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 freertos\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -59,6 +59,6 @@ freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 freertos\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
-freertos\freertos.o: D:\ARM\ARMCC\Bin\..\include\stdio.h
+freertos\freertos.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 freertos\freertos.o: ..\BSP\key.h
 freertos\freertos.o: ..\SYSTEM\delay.h

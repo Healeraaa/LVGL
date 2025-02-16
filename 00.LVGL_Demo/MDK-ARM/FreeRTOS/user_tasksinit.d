@@ -1,8 +1,8 @@
 freertos\user_tasksinit.o: ..\Tasks\Src\User_TasksInit.c
 freertos\user_tasksinit.o: ..\Tasks\Inc\user_TasksInit.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-freertos\user_tasksinit.o: D:\ARM\ARMCC\Bin\..\include\stddef.h
-freertos\user_tasksinit.o: D:\ARM\ARMCC\Bin\..\include\stdint.h
+freertos\user_tasksinit.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+freertos\user_tasksinit.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 freertos\user_tasksinit.o: ../Core/Inc/FreeRTOSConfig.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -17,7 +17,7 @@ freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/qu
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 freertos\user_tasksinit.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
-freertos\user_tasksinit.o: D:\ARM\ARMCC\Bin\..\include\stdio.h
+freertos\user_tasksinit.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 freertos\user_tasksinit.o: ..\BSP\LED.h
 freertos\user_tasksinit.o: ../Core/Inc/main.h
 freertos\user_tasksinit.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h

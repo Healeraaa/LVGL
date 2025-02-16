@@ -53,6 +53,8 @@
 "freertos\led.o"
 "freertos\lcd_init.o"
 "freertos\lcd.o"
+"freertos\iic_soft.o"
+"freertos\cst816.o"
 "freertos\delay.o"
 "freertos\user_tasksinit.o"
 --library_type=microlib --strict --scatter "FreeRTOS\FreeRTOS.sct"

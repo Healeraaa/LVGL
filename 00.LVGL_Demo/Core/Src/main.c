@@ -36,7 +36,7 @@ int main(void)
 	LCD_Fill(0,0,LCD_W,LCD_H,WHITE);
 	delay_ms(10);
   // LCD_Set_Light(50);
-	LCD_ShowString(72,LCD_H/2-20,(uint8_t*)"Welcome!",WHITE,BLACK,24,0);//12*6,16*8,24*12,32*16
+	LCD_ShowString(72,LCD_H/2-20,(uint8_t*)"Welcome!!!",WHITE,BLACK,24,0);//12*6,16*8,24*12,32*16
 	delay_ms(1000);
 	LCD_Fill(0,0,LCD_W,LCD_H,WHITE);
 
