@@ -1,7 +1,7 @@
 Dependencies for Project 'FreeRTOS', Target 'FreeRTOS': (DO NOT MODIFY !)
 CompilerVersion: 5060061::V5.06 update 1 (build 61)::.\ARMCC
 F (startup_stm32f407xx.s)(0x67B19134)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Core/Inc-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 541" --pd "STM32F407xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f407xx.lst --xref -o freertos\startup_stm32f407xx.o --depend freertos\startup_stm32f407xx.d)
-F (../Core/Src/main.c)(0x67B19974)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\main.o --omf_browse freertos\main.crf --depend freertos\main.d)
+F (../Core/Src/main.c)(0x67B2C983)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\main.o --omf_browse freertos\main.crf --depend freertos\main.d)
 I (../Core/Inc/main.h)(0x67B19133)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67B19133)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67B19133)
@@ -60,8 +60,10 @@ I (../Core/Inc/usart.h)(0x67B19133)
 I (../Core/Inc/gpio.h)(0x67B19133)
 I (..\BSP\Lcd_init.h)(0x67B19133)
 I (..\BSP\LCD.h)(0x67B19133)
-I (..\BSP\key.h)(0x67B19133)
+I (..\BSP\CST816.h)(0x67B2C6ED)
+I (..\BSP\IIC_Soft.h)(0x67B19133)
 I (..\SYSTEM\delay.h)(0x67B19134)
+I (..\BSP\key.h)(0x67B19133)
 I (..\BSP\LED.h)(0x67B19133)
 F (../Core/Src/gpio.c)(0x67B19133)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\gpio.o --omf_browse freertos\gpio.crf --depend freertos\gpio.d)
 I (../Core/Inc/gpio.h)(0x67B19133)
@@ -1720,7 +1722,7 @@ I (..\SYSTEM\delay.h)(0x67B19134)
 I (../Core/Inc/SPIHard.h)(0x67B19133)
 F (..\BSP\LCD.h)(0x67B19133)()
 F (..\BSP\lcdfont.h)(0x67B19133)()
-F (..\BSP\IIC_Soft.c)(0x67B19133)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\iic_soft.o --omf_browse freertos\iic_soft.crf --depend freertos\iic_soft.d)
+F (..\BSP\IIC_Soft.c)(0x67B2B732)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\iic_soft.o --omf_browse freertos\iic_soft.crf --depend freertos\iic_soft.d)
 I (..\BSP\IIC_Soft.h)(0x67B19133)
 I (../Core/Inc/main.h)(0x67B19133)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67B19133)
@@ -1767,8 +1769,54 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h)(0x67B19133)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h)(0x67B19133)
 I (..\SYSTEM\delay.h)(0x67B19134)
 F (..\BSP\IIC_Soft.h)(0x67B19133)()
-F (..\BSP\CST816.c)(0x67B19A05)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\cst816.o --omf_browse freertos\cst816.crf --depend freertos\cst816.d)
-F (..\BSP\CST816.h)(0x67B1D5CD)()
+F (..\BSP\CST816.c)(0x67B2B9EE)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\cst816.o --omf_browse freertos\cst816.crf --depend freertos\cst816.d)
+I (..\BSP\CST816.h)(0x67B2C6ED)
+I (D:\Keil\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569DEA3A)
+I (..\BSP\IIC_Soft.h)(0x67B19133)
+I (../Core/Inc/main.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x67B19133)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x67B19133)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x67B19133)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x67B19133)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x67B19133)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x67B19133)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x67B19133)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x67B19133)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x67B19133)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x67B19133)
+I (D:\Keil\Keil_v5\ARM\ARMCC\include\stddef.h)(0x569DEA3A)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_cortex.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_utils.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h)(0x67B19133)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h)(0x67B19133)
+I (..\SYSTEM\delay.h)(0x67B19134)
+F (..\BSP\CST816.h)(0x67B2C6ED)()
 F (..\SYSTEM\delay.c)(0x67B19134)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\BSP -I ..\Core\Src -I ..\SYSTEM -I ..\Tasks\Inc -I ..\Tasks\Src --no-multibyte-chars-I.\RTE\_FreeRTOS-ID:\Keil\Packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="541" -DSTM32F407xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32F407xx -DUSE_HAL_DRIVER-o freertos\delay.o --omf_browse freertos\delay.crf --depend freertos\delay.d)
 I (..\SYSTEM\delay.h)(0x67B19134)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h)(0x67B19133)

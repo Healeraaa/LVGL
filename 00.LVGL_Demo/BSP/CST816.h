@@ -95,7 +95,7 @@ uint8_t CST816_Get_ChipID(void);
 uint8_t CST816_Get_FingerNum(void);
 /* 触摸屏读写函数 */
 void CST816_IIC_WriteREG(uint8_t addr, uint8_t dat);
-uint8_t CST816_IIC_ReadREG(unsigned char addr);
+uint8_t CST816_IIC_ReadREG(uint8_t addr);
 
 /* 触摸屏有关参数配置函数 */
 void CST816_Config_MotionMask(uint8_t mode);
@@ -106,5 +106,7 @@ void CST816_Config_IrqPluseWidth(uint8_t Width);
 void CST816_Config_LpScanTH(uint8_t TH);
 void CST816_Wakeup(void);
 void CST816_Sleep(void);
+
+extern CST816_Info CST816_Instance;
 
 #endif

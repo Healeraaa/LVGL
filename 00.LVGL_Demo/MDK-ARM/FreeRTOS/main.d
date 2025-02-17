@@ -58,6 +58,8 @@ freertos\main.o: ../Core/Inc/usart.h
 freertos\main.o: ../Core/Inc/gpio.h
 freertos\main.o: ..\BSP\Lcd_init.h
 freertos\main.o: ..\BSP\LCD.h
-freertos\main.o: ..\BSP\key.h
+freertos\main.o: ..\BSP\CST816.h
+freertos\main.o: ..\BSP\IIC_Soft.h
 freertos\main.o: ..\SYSTEM\delay.h
+freertos\main.o: ..\BSP\key.h
 freertos\main.o: ..\BSP\LED.h

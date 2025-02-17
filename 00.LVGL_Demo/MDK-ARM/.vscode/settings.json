@@ -23,6 +23,9 @@
         "pwm1.h": "c",
         "spihard.h": "c",
         "lcd_init.h": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "compare": "c",
+        "cstdint": "c",
+        "cst816.h": "c"
     }
 }
