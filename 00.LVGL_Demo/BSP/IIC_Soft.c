@@ -13,7 +13,7 @@ void SDA_Input_Mode(iic_bus_t *bus)
     GPIO_InitStruct.Pin = bus->IIC_SDA_PIN;
     GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
-    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
     LL_GPIO_Init(bus->IIC_SDA_PORT, &GPIO_InitStruct);
 }
 
@@ -30,7 +30,7 @@ void SDA_Output_Mode(iic_bus_t *bus)
     GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
     GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_OPENDRAIN;
     GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
-    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
     LL_GPIO_Init(bus->IIC_SDA_PORT, &GPIO_InitStruct);
 }
 
@@ -358,7 +358,7 @@ void IICInit(iic_bus_t *bus)
     GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
     GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
     GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
-    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
     LL_GPIO_Init(bus->IIC_SDA_PORT, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = bus->IIC_SCL_PIN;
