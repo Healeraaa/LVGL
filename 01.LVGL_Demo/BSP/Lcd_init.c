@@ -1,5 +1,6 @@
 #include "Lcd_init.h"
 #include "SPIHard.h"
+#include "user_dma.h"
 #include "PWM1.h"
 #include "delay.h"
 
@@ -176,6 +177,7 @@ void LCD_ST7789_SleepOut(void)
 
 void LCD_Init(void)
 {
+    DMA_Init();
     SPI1_Init();     // 初始化Hard SPI
     PWM1_Init();     // 初始化PWM输出
     LCD_GPIO_Init(); // 初始化GPIO

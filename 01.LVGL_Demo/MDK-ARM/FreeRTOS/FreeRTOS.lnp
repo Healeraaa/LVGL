@@ -10,6 +10,7 @@
 "freertos\timer.o"
 "freertos\pwm1.o"
 "freertos\spihard.o"
+"freertos\user_dma.o"
 "freertos\stm32f4xx_ll_gpio.o"
 "freertos\stm32f4xx_ll_rcc.o"
 "freertos\stm32f4xx_ll_utils.o"
