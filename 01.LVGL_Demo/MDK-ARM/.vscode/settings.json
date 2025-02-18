@@ -30,6 +30,7 @@
         "lv_port_disp_template.h": "c",
         "lcd.h": "c",
         "lvgl.h": "c",
-        "user_dma.h": "c"
+        "user_dma.h": "c",
+        "lv_port_indev_template.h": "c"
     }
 }

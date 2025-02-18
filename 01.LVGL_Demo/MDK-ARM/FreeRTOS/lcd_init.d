@@ -45,5 +45,6 @@ freertos\lcd_init.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h
 freertos\lcd_init.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h
 freertos\lcd_init.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h
 freertos\lcd_init.o: ../Core/Inc/SPIHard.h
+freertos\lcd_init.o: ../Core/Inc/user_dma.h
 freertos\lcd_init.o: ../Core/Inc/PWM1.h
 freertos\lcd_init.o: ..\SYSTEM\delay.h
