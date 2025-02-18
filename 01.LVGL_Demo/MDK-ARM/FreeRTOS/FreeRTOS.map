@@ -1303,6 +1303,13 @@ Section Cross References
     user_tasksinit.o(i.User_Tasks_Init) refers to user_tasksinit.o(.data) for .data
     user_tasksinit.o(i.User_Tasks_Init) refers to user_tasksinit.o(i.SPITEST_Task) for SPITEST_Task
     user_tasksinit.o(i.User_Tasks_Init) refers to user_tasksinit.o(i.LEDToggle_Task) for LEDToggle_Task
+    lv_port_disp_template.o(i.disp_flush) refers to lcd.o(i.LCD_Color_Fill) for LCD_Color_Fill
+    lv_port_disp_template.o(i.disp_flush) refers to lv_hal_disp.o(i.lv_disp_flush_ready) for lv_disp_flush_ready
+    lv_port_disp_template.o(i.lv_port_disp_init) refers to lv_hal_disp.o(i.lv_disp_drv_init) for lv_disp_drv_init
+    lv_port_disp_template.o(i.lv_port_disp_init) refers to lv_hal_disp.o(i.lv_disp_draw_buf_init) for lv_disp_draw_buf_init
+    lv_port_disp_template.o(i.lv_port_disp_init) refers to lv_hal_disp.o(i.lv_disp_drv_register) for lv_disp_drv_register
+    lv_port_disp_template.o(i.lv_port_disp_init) refers to lv_port_disp_template.o(.bss) for .bss
+    lv_port_disp_template.o(i.lv_port_disp_init) refers to lv_port_disp_template.o(i.disp_flush) for disp_flush
     lv_disp.o(i._lv_disp_get_refr_timer) refers to lv_hal_disp.o(i.lv_disp_get_default) for lv_disp_get_default
     lv_disp.o(i.lv_disp_clean_dcache) refers to lv_hal_disp.o(i.lv_disp_get_default) for lv_disp_get_default
     lv_disp.o(i.lv_disp_get_inactive_time) refers to lv_hal_tick.o(i.lv_tick_elaps) for lv_tick_elaps
@@ -8100,6 +8107,12 @@ Removing Unused input sections from the image.
     Removing user_tasksinit.o(.rev16_text), (4 bytes).
     Removing user_tasksinit.o(.revsh_text), (4 bytes).
     Removing user_tasksinit.o(.rrx_text), (6 bytes).
+    Removing lv_port_disp_template.o(.rev16_text), (4 bytes).
+    Removing lv_port_disp_template.o(.revsh_text), (4 bytes).
+    Removing lv_port_disp_template.o(.rrx_text), (6 bytes).
+    Removing lv_port_disp_template.o(i.disp_flush), (30 bytes).
+    Removing lv_port_disp_template.o(i.lv_port_disp_init), (72 bytes).
+    Removing lv_port_disp_template.o(.bss), (26984 bytes).
     Removing lv_disp.o(i._lv_disp_get_refr_timer), (16 bytes).
     Removing lv_disp.o(i.lv_disp_clean_dcache), (28 bytes).
     Removing lv_disp.o(i.lv_disp_get_inactive_time), (54 bytes).
@@ -10028,7 +10041,7 @@ Removing Unused input sections from the image.
     Removing fepilogue.o(.text), (110 bytes).
     Removing drnd.o(.text), (136 bytes).
 
-2744 unused section(s) (total 314539 bytes) removed from the image.
+2750 unused section(s) (total 341639 bytes) removed from the image.
 
 ==============================================================================
 
@@ -10376,6 +10389,7 @@ Image Symbol Table
     ..\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_ll_adc.c 0x00000000   Number         0  stm32f4xx_ll_adc.o ABSOLUTE
     ..\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_ll_spi.c 0x00000000   Number         0  stm32f4xx_ll_spi.o ABSOLUTE
     ..\\Drivers\\STM32F4xx_HAL_Driver\\Src\\stm32f4xx_ll_tim.c 0x00000000   Number         0  stm32f4xx_ll_tim.o ABSOLUTE
+    ..\\Middlewares\\LVGL\\GUI\\lvgl\\examples\\porting\\lv_port_disp_template.c 0x00000000   Number         0  lv_port_disp_template.o ABSOLUTE
     ..\\SYSTEM\\delay.c                      0x00000000   Number         0  delay.o ABSOLUTE
     ..\\Tasks\\Src\\User_TasksInit.c         0x00000000   Number         0  user_tasksinit.o ABSOLUTE
     cdcmple.s                                0x00000000   Number         0  cdcmple.o ABSOLUTE
@@ -11024,34 +11038,34 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x00000188   Data   RO            3    RESET               startup_stm32f407xx.o
-    0x08000188   0x08000188   0x00000000   Code   RO        34987  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000188   0x08000188   0x00000004   Code   RO        35336    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x0800018c   0x0800018c   0x00000004   Code   RO        35339    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x08000190   0x08000190   0x00000000   Code   RO        35341    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x08000190   0x08000190   0x00000000   Code   RO        35343    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x08000190   0x08000190   0x00000008   Code   RO        35344    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x08000198   0x08000198   0x00000000   Code   RO        35346    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x08000198   0x08000198   0x00000000   Code   RO        35348    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x08000198   0x08000198   0x00000004   Code   RO        35337    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x08000188   0x08000188   0x00000000   Code   RO        35401  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000188   0x08000188   0x00000004   Code   RO        35750    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x0800018c   0x0800018c   0x00000004   Code   RO        35753    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x08000190   0x08000190   0x00000000   Code   RO        35755    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x08000190   0x08000190   0x00000000   Code   RO        35757    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x08000190   0x08000190   0x00000008   Code   RO        35758    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x08000198   0x08000198   0x00000000   Code   RO        35760    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x08000198   0x08000198   0x00000000   Code   RO        35762    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x08000198   0x08000198   0x00000004   Code   RO        35751    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x0800019c   0x0800019c   0x000000be   Code   RO         5227    .emb_text           port.o
     0x0800025a   0x0800025a   0x00000002   PAD
     0x0800025c   0x0800025c   0x00000024   Code   RO            4    .text               startup_stm32f407xx.o
-    0x08000280   0x08000280   0x00000062   Code   RO        34990    .text               mc_w.l(uldiv.o)
-    0x080002e2   0x080002e2   0x00000040   Code   RO        34996    .text               mc_w.l(memmovea.o)
-    0x08000322   0x08000322   0x00000024   Code   RO        35000    .text               mc_w.l(memseta.o)
-    0x08000346   0x08000346   0x0000014e   Code   RO        35279    .text               mf_w.l(dadd.o)
-    0x08000494   0x08000494   0x000000e4   Code   RO        35281    .text               mf_w.l(dmul.o)
-    0x08000578   0x08000578   0x000000de   Code   RO        35283    .text               mf_w.l(ddiv.o)
+    0x08000280   0x08000280   0x00000062   Code   RO        35404    .text               mc_w.l(uldiv.o)
+    0x080002e2   0x080002e2   0x00000040   Code   RO        35410    .text               mc_w.l(memmovea.o)
+    0x08000322   0x08000322   0x00000024   Code   RO        35414    .text               mc_w.l(memseta.o)
+    0x08000346   0x08000346   0x0000014e   Code   RO        35693    .text               mf_w.l(dadd.o)
+    0x08000494   0x08000494   0x000000e4   Code   RO        35695    .text               mf_w.l(dmul.o)
+    0x08000578   0x08000578   0x000000de   Code   RO        35697    .text               mf_w.l(ddiv.o)
     0x08000656   0x08000656   0x00000002   PAD
-    0x08000658   0x08000658   0x00000030   Code   RO        35297    .text               mf_w.l(cdrcmple.o)
-    0x08000688   0x08000688   0x0000002c   Code   RO        35351    .text               mc_w.l(uidiv.o)
-    0x080006b4   0x080006b4   0x0000001e   Code   RO        35353    .text               mc_w.l(llshl.o)
-    0x080006d2   0x080006d2   0x00000020   Code   RO        35355    .text               mc_w.l(llushr.o)
-    0x080006f2   0x080006f2   0x00000024   Code   RO        35357    .text               mc_w.l(llsshr.o)
-    0x08000716   0x08000716   0x00000000   Code   RO        35366    .text               mc_w.l(iusefp.o)
-    0x08000716   0x08000716   0x000000ba   Code   RO        35369    .text               mf_w.l(depilogue.o)
-    0x080007d0   0x080007d0   0x00000030   Code   RO        35373    .text               mf_w.l(dfixul.o)
-    0x08000800   0x08000800   0x00000024   Code   RO        35379    .text               mc_w.l(init.o)
+    0x08000658   0x08000658   0x00000030   Code   RO        35711    .text               mf_w.l(cdrcmple.o)
+    0x08000688   0x08000688   0x0000002c   Code   RO        35765    .text               mc_w.l(uidiv.o)
+    0x080006b4   0x080006b4   0x0000001e   Code   RO        35767    .text               mc_w.l(llshl.o)
+    0x080006d2   0x080006d2   0x00000020   Code   RO        35769    .text               mc_w.l(llushr.o)
+    0x080006f2   0x080006f2   0x00000024   Code   RO        35771    .text               mc_w.l(llsshr.o)
+    0x08000716   0x08000716   0x00000000   Code   RO        35780    .text               mc_w.l(iusefp.o)
+    0x08000716   0x08000716   0x000000ba   Code   RO        35783    .text               mf_w.l(depilogue.o)
+    0x080007d0   0x080007d0   0x00000030   Code   RO        35787    .text               mf_w.l(dfixul.o)
+    0x08000800   0x08000800   0x00000024   Code   RO        35793    .text               mc_w.l(init.o)
     0x08000824   0x08000824   0x00000002   Code   RO          376    i.BusFault_Handler  stm32f4xx_it.o
     0x08000826   0x08000826   0x00000002   PAD
     0x08000828   0x08000828   0x00000054   Code   RO         6054    i.CST816_GPIO_Init  cst816.o
@@ -11140,16 +11154,16 @@ Memory Map of the image
     0x08001e94   0x08001e94   0x00000002   Code   RO          382    i.UsageFault_Handler  stm32f4xx_it.o
     0x08001e96   0x08001e96   0x00000002   PAD
     0x08001e98   0x08001e98   0x0000005c   Code   RO         6202    i.User_Tasks_Init   user_tasksinit.o
-    0x08001ef4   0x08001ef4   0x00000020   Code   RO        35251    i.__0printf         mc_w.l(printfa.o)
+    0x08001ef4   0x08001ef4   0x00000020   Code   RO        35665    i.__0printf         mc_w.l(printfa.o)
     0x08001f14   0x08001f14   0x00000020   Code   RO         1714    i.__NVIC_SetPriority  stm32f4xx_hal_cortex.o
-    0x08001f34   0x08001f34   0x0000000e   Code   RO        35383    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08001f42   0x08001f42   0x00000002   Code   RO        35384    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08001f44   0x08001f44   0x0000000e   Code   RO        35385    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08001f34   0x08001f34   0x0000000e   Code   RO        35797    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08001f42   0x08001f42   0x00000002   Code   RO        35798    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08001f44   0x08001f44   0x0000000e   Code   RO        35799    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08001f52   0x08001f52   0x00000002   PAD
-    0x08001f54   0x08001f54   0x00000164   Code   RO        35258    i._fp_digits        mc_w.l(printfa.o)
-    0x080020b8   0x080020b8   0x000006dc   Code   RO        35259    i._printf_core      mc_w.l(printfa.o)
-    0x08002794   0x08002794   0x00000024   Code   RO        35260    i._printf_post_padding  mc_w.l(printfa.o)
-    0x080027b8   0x080027b8   0x0000002e   Code   RO        35261    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x08001f54   0x08001f54   0x00000164   Code   RO        35672    i._fp_digits        mc_w.l(printfa.o)
+    0x080020b8   0x080020b8   0x000006dc   Code   RO        35673    i._printf_core      mc_w.l(printfa.o)
+    0x08002794   0x08002794   0x00000024   Code   RO        35674    i._printf_post_padding  mc_w.l(printfa.o)
+    0x080027b8   0x080027b8   0x0000002e   Code   RO        35675    i._printf_pre_padding  mc_w.l(printfa.o)
     0x080027e6   0x080027e6   0x00000002   PAD
     0x080027e8   0x080027e8   0x0000004c   Code   RO         6162    i.delay_init        delay.o
     0x08002834   0x08002834   0x0000001a   Code   RO         6163    i.delay_ms          delay.o
@@ -11233,7 +11247,7 @@ Memory Map of the image
     0x080040f6   0x080040f6   0x00000008   Data   RO         3467    .constdata          system_stm32f4xx.o
     0x080040fe   0x080040fe   0x0000391c   Data   RO         5823    .constdata          lcd.o
     0x08007a1a   0x08007a1a   0x00000002   PAD
-    0x08007a1c   0x08007a1c   0x00000020   Data   RO        35381    Region$$Table       anon$$obj.o
+    0x08007a1c   0x08007a1c   0x00000020   Data   RO        35795    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08007a3c, Size: 0x00004dd8, Max: 0x0001c000, ABSOLUTE)
@@ -11250,7 +11264,7 @@ Memory Map of the image
     0x20000090   0x08007acc   0x00000014   Data   RW         6064    .data               cst816.o
     0x200000a4   0x08007ae0   0x00000004   Data   RW         6165    .data               delay.o
     0x200000a8   0x08007ae4   0x00000008   Data   RW         6203    .data               user_tasksinit.o
-    0x200000b0   0x08007aec   0x00000004   Data   RW        35350    .data               mc_w.l(stdout.o)
+    0x200000b0   0x08007aec   0x00000004   Data   RW        35764    .data               mc_w.l(stdout.o)
     0x200000b4        -       0x00000048   Zero   RW          467    .bss                stm32f4xx_hal_timebase_tim.o
     0x200000fc        -       0x00000040   Zero   RW         3710    .bss                queue.o
     0x2000013c        -       0x000004c4   Zero   RW         4166    .bss                tasks.o

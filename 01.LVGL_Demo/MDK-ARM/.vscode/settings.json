@@ -26,6 +26,9 @@
         "task.h": "c",
         "compare": "c",
         "cstdint": "c",
-        "cst816.h": "c"
+        "cst816.h": "c",
+        "lv_port_disp_template.h": "c",
+        "lcd.h": "c",
+        "lvgl.h": "c"
     }
 }
