@@ -45,16 +45,6 @@ int main(void)
   delay_ms(1000);
   LCD_Fill(0, 0, LCD_W, LCD_H, WHITE);
   delay_ms(1000);
-  // LCD_ShowString(72,LCD_H/2-20,(uint8_t*)CST816_Get_ChipID(),WHITE,BLACK,24,0);//12*6,16*8,24*12,32*16
-  // CST816_Wakeup();
-  // delay_ms(10);
-  // LCD_ShowIntNum(72, LCD_H / 2 - 20, (uint16_t)CST816_Get_FingerNum(), 10, WHITE, BLACK, 24);
-  while (1)
-  {
-    CST816_Get_XY_AXIS();
-    LCD_ShowIntNum(72, LCD_H / 2 - 20, CST816_Instance.X_Pos, 10, WHITE, BLACK, 24);
-    LCD_ShowIntNum(72, LCD_H / 2 + 20, CST816_Instance.Y_Pos, 10, WHITE, BLACK, 24);
-  }
 
   /* USER CODE END 2 */
   osKernelInitialize();

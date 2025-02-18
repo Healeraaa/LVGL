@@ -82,9 +82,9 @@ void CST816_IIC_WriteREG(uint8_t addr, uint8_t dat)
 void CST816_RESET(void)
 {
 	TOUCH_RST_0;
-	HAL_Delay(10);
+	delay_ms(10);
 	TOUCH_RST_1;
-	HAL_Delay(100);
+	delay_ms(100);
 }
 
 /**

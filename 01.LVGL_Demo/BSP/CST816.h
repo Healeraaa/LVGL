@@ -107,6 +107,5 @@ void CST816_Config_LpScanTH(uint8_t TH);
 void CST816_Wakeup(void);
 void CST816_Sleep(void);
 
-extern CST816_Info CST816_Instance;
 
 #endif
