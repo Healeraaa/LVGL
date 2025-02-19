@@ -1,4 +1,5 @@
 #include "SPIHard.h"
+#include "delay.h"
 
 void SPI1_Init(void)
 {
@@ -113,10 +114,12 @@ void SPI1_SetDataWidth(uint32_t dataWidth)
 void SPI1_Transmit_DMA(uint8_t *data, uint32_t size)
 {
   while (LL_DMA_IsEnabledStream(DMA2, LL_DMA_STREAM_3)){}
+  
   LL_DMA_ClearFlag_TC3(DMA2);  // 清除传输完成标志
-  // LL_DMA_ClearFlag_HT3(DMA2);  // 清除半传输完成标志
-  // 设置DMA的外设地址为SPI1的数据寄存器地址
+
   LL_DMA_DisableStream(DMA2, LL_DMA_STREAM_3);
+
+  // 设置DMA的外设地址为SPI1的数据寄存器地址
   LL_DMA_SetPeriphAddress(DMA2, LL_DMA_STREAM_3, LL_SPI_DMA_GetRegAddr(SPI1));
 
   // 设置DMA的内存地址为要传输的数据的起始地址
@@ -129,64 +132,22 @@ void SPI1_Transmit_DMA(uint8_t *data, uint32_t size)
   // 使能DMA流
   LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_3);
 
+
+  
   // 等待DMA传输完成（可选）
   while (LL_DMA_IsEnabledStream(DMA2, LL_DMA_STREAM_3))
   {
     // 等待传输完成
   }
-
+  while (!LL_DMA_IsActiveFlag_TC3(DMA2))
+  {
+    /* code */
+  }
+  
+  LL_DMA_ClearFlag_TC3(DMA2);// 清除传输完成标志
 
 
 
 }
 
 
-
- 
-// 使用LL库实现的SPI DMA发送函数 
-uint32_t LL_SPI1_Transmit_DMA(uint8_t *pData, uint16_t Size) 
-{ 
- 
-
- 
-    // 配置DMA传输 
-    // 复位DMA通道 
-    LL_DMA_DisableStream(DMA2, LL_DMA_STREAM_3);
-    LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_3, Size);
-    LL_DMA_SetPeriphAddress(DMA2, LL_DMA_STREAM_3, (uint32_t)&SPI1->DR);
-    LL_DMA_SetMemoryAddress(DMA2, LL_DMA_STREAM_3, (uint32_t)pData);
-    LL_DMA_SetPeriphIncMode(DMA2, LL_DMA_STREAM_3, LL_DMA_PERIPH_NOINCREMENT); 
-    LL_DMA_SetMemoryIncMode(DMA2, LL_DMA_STREAM_3, LL_DMA_MEMORY_INCREMENT); 
-    LL_DMA_SetPeriphSize(DMA2, LL_DMA_STREAM_3, LL_DMA_PDATAALIGN_BYTE); 
-    LL_DMA_SetMemorySize(DMA2, LL_DMA_STREAM_3, LL_DMA_MDATAALIGN_BYTE); 
-    LL_DMA_SetMode(DMA2, LL_DMA_STREAM_3, LL_DMA_MODE_NORMAL); 
-    LL_DMA_SetStreamPriorityLevel(DMA2, LL_DMA_STREAM_3, LL_DMA_PRIORITY_HIGH); 
- 
-    // 设置DMA传输的回调函数 
-    // 这里只是示例，实际需要根据具体硬件和情况处理回调 
-    // 例如在中断处理函数中调用这些回调 
-    // 半传输完成回调 
-    // 全传输完成回调 
-    // 错误回调 
- 
-    // 使能DMA传输完成和半完成中断 
-    LL_DMA_EnableIT_TC(DMA2, LL_DMA_STREAM_3); 
-    LL_DMA_EnableIT_HT(DMA2, LL_DMA_STREAM_3); 
- 
-    // 启动DMA传输 
-    LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_3);
-
- 
-    // 检查SPI是否已经使能，未使能则使能 
-    if (!LL_SPI_IsEnabled(SPI1)) 
-    { 
-        LL_SPI_Enable(SPI1); 
-    } 
- 
-    // 使能SPI错误中断 
-    LL_SPI_EnableIT_ERR(SPI1); 
- 
-    // 使能SPI的Tx DMA请求 
-    LL_SPI_EnableDMAReq_TX(SPI1); 
-} 
- 
