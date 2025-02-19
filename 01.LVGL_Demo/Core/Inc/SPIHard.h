@@ -8,6 +8,7 @@ void SPI1_Transmit8(uint8_t data);
 void SPI1_Transmit16(uint16_t data);
 void SPI1_SetDataWidth(uint32_t dataWidth);
 void SPI1_Transmit_DMA(uint8_t *data, uint32_t size);
+uint32_t LL_SPI1_Transmit_DMA(uint8_t *pData, uint16_t Size) ;
 
 
 

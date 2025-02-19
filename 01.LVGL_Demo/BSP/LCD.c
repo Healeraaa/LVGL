@@ -57,7 +57,16 @@ void LCD_Color_Fill(uint16_t xsta, uint16_t ysta, uint16_t xend, uint16_t yend, 
 	SPI1_SetDataWidth(LL_SPI_DATAWIDTH_16BIT);
 
 	SPI1_Transmit_DMA((uint8_t *)color_p, size);
-	
+	// SPI1_LL_Transmit_DMA((uint16_t *)color_p, size);
+
+	// while (LL_DMA_IsActiveFlag_TC2(DMA2) == RESET)
+	// {
+	// 	// 等待 DMA 传输完成
+	// }
+
+	// // DMA 传输完成后清除标志
+	// LL_DMA_ClearFlag_TC3(DMA2);
+
 	// 恢复SPI为8位数据模式，确保之后的SPI通信不受影响
 	SPI1_SetDataWidth(LL_SPI_DATAWIDTH_8BIT);
 }

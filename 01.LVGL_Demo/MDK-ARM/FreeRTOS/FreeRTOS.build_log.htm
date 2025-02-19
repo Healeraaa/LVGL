@@ -22,19 +22,19 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 E:\MCU Project\STM32F407Project\LVGL\01.LVGL_Demo\MDK-ARM\FreeRTOS.uvprojx
-Project File Date:  02/18/2025
+Project File Date:  02/19/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'D:\Keil\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LVGL'
-compiling main.c...
-../Core/Src/main.c(68): warning:  #111-D: statement is unreachable
-    osKernelInitialize();
-../Core/Src/main.c(69): warning:  #223-D: function "MX_FREERTOS_Init" declared implicitly
-    MX_FREERTOS_Init();    // ä»?åŠ?åˆ?å§?åŒ?
-../Core/Src/main.c: 2 warnings, 0 errors
+compiling SPIHard.c...
+..\Core\Src\SPIHard.c(191): warning:  #940-D: missing return statement at end of non-void function "LL_SPI1_Transmit_DMA"
+  } 
+..\Core\Src\SPIHard.c(192): warning:  #1-D: last line of file ends without a newline
+   
+..\Core\Src\SPIHard.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=152568 RO-data=33048 RW-data=604 ZI-data=79324  
+Program Size: Code=153044 RO-data=33048 RW-data=604 ZI-data=79324  
 FromELF: creating hex file...
 "FreeRTOS\FreeRTOS.axf" - 0 Error(s), 2 Warning(s).
 
@@ -58,7 +58,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE@6.1.0
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

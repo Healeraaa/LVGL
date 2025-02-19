@@ -56,6 +56,8 @@ freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 freertos\main.o: ../Core/Inc/usart.h
 freertos\main.o: ../Core/Inc/gpio.h
+freertos\main.o: ../Core/Inc/Timer.h
+freertos\main.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 freertos\main.o: ..\BSP\Lcd_init.h
 freertos\main.o: ..\BSP\LCD.h
 freertos\main.o: ..\BSP\CST816.h

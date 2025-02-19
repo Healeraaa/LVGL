@@ -225,6 +225,7 @@
 "freertos\lv_switch.o"
 "freertos\lv_table.o"
 "freertos\lv_textarea.o"
+"freertos\lv_demo_stress.o"
 --library_type=microlib --strict --scatter "FreeRTOS\FreeRTOS.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -20,6 +20,8 @@
                 "e:\\MCU Project\\STM32F407Project\\LVGL\\01.LVGL_Demo\\Middlewares\\LVGL\\GUI\\lvgl",
                 "e:\\MCU Project\\STM32F407Project\\LVGL\\01.LVGL_Demo\\Middlewares\\LVGL\\GUI\\lvgl\\src",
                 "e:\\MCU Project\\STM32F407Project\\LVGL\\01.LVGL_Demo\\Middlewares\\LVGL\\GUI\\lvgl\\examples\\porting",
+                "e:\\MCU Project\\STM32F407Project\\LVGL\\01.LVGL_Demo\\Middlewares\\LVGL\\GUI_APP\\demos",
+                "e:\\MCU Project\\STM32F407Project\\LVGL\\01.LVGL_Demo\\Middlewares\\LVGL\\GUI_APP\\demos\\stress",
                 "D:\\Keil\\Keil_v5\\ARM\\ARMCC\\include",
                 "D:\\Keil\\Keil_v5\\ARM\\ARMCC\\include\\rw",
                 "e:\\MCU Project\\STM32F407Project\\LVGL\\01.LVGL_Demo\\MDK-ARM",
