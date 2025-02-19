@@ -27,11 +27,16 @@ Project File Date:  02/18/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'D:\Keil\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LVGL'
-compiling lv_port_indev_template.c...
+compiling main.c...
+../Core/Src/main.c(68): warning:  #111-D: statement is unreachable
+    osKernelInitialize();
+../Core/Src/main.c(69): warning:  #223-D: function "MX_FREERTOS_Init" declared implicitly
+    MX_FREERTOS_Init();    // ä»?åŠ?åˆ?å§?åŒ?
+../Core/Src/main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=16456 RO-data=15092 RW-data=180 ZI-data=19748  
+Program Size: Code=152568 RO-data=33048 RW-data=604 ZI-data=79324  
 FromELF: creating hex file...
-"FreeRTOS\FreeRTOS.axf" - 0 Error(s), 0 Warning(s).
+"FreeRTOS\FreeRTOS.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -53,7 +58,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE@6.1.0
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:08
 </pre>
 </body>
 </html>

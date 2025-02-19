@@ -12,6 +12,10 @@
 // #include "AToD.h"
 // #include "OLED.h"
 #include "LED.h"
+// gui
+#include "lvgl.h"
+#include "lv_port_disp_template.h"
+#include "lv_port_indev_template.h"
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -44,7 +48,21 @@ int main(void)
   LCD_ShowString(72, LCD_H / 2 - 20, (uint8_t *)"Welcome!", WHITE, BLACK, 24, 0); // 12*6,16*8,24*12,32*16
   delay_ms(1000);
   LCD_Fill(0, 0, LCD_W, LCD_H, WHITE);
-  delay_ms(1000);
+
+  // LVGL init
+  lv_init();
+  lv_port_disp_init();
+  lv_port_indev_init();
+
+  lv_obj_t *switch_obj = lv_switch_create(lv_scr_act());
+  lv_obj_set_size(switch_obj, 120, 60);
+  lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+
+  while (1)
+  {
+    delay_ms(5);
+    lv_timer_handler();
+  }
 
   /* USER CODE END 2 */
   osKernelInitialize();
