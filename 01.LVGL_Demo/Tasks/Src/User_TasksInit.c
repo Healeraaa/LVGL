@@ -52,8 +52,7 @@ void LEDToggle_Task(void *argument)
 {
   while (1)
   {
-    // LED_OFF();
-    // LED_Reveral();
+    LED_Reveral();
     vTaskDelay(500);
   }
 }
@@ -65,9 +64,13 @@ void LEDToggle_Task(void *argument)
  */
 void LVGL_Task(void *argument)
 {
-  lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
-  lv_obj_set_size(switch_obj, 40, 20);
-  lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+  lv_obj_t *myBtn = lv_btn_create(lv_scr_act());                               // 创建按钮; 父对象：当前活动屏幕
+  lv_obj_set_pos(myBtn, 10, 100);                                               // 设置坐标
+  lv_obj_set_size(myBtn, 100, 50);                                             // 设置
+
+  // lv_obj_t *label_btn = lv_label_create(myBtn);                                // 创建文本标签，父对象：上面的btn按钮
+  //   lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);                              // 对齐于：父对象
+  //   lv_label_set_text(label_btn, "Test");                                        // 设置标签的文本
   LED_ON();
   while (1)
   {
@@ -89,8 +92,8 @@ void LvHandlerTask(void *argument);
  */
 void User_Tasks_Init(void)
 {
-  xTaskCreate(LvHandlerTask, "LvHandlerTask", 128*48, NULL, 2, &LvHandlerTask_Handle);
-  xTaskCreate(LVGL_Task, "LVGL_Task", 128*48, NULL, 3, &LVGL_Task_Handler);
+  xTaskCreate(LvHandlerTask, "LvHandlerTask", 128*24, NULL, 2, &LvHandlerTask_Handle);
+  xTaskCreate(LVGL_Task, "LVGL_Task", 128, NULL, 3, &LVGL_Task_Handler);
 
 
   // xTaskCreate(SPITEST_Task, "SPITEST_Task", 128, NULL, 9, &SPITEST_Task_Handler);
@@ -119,7 +122,6 @@ void LvHandlerTask(void *argument)
 {
   while (1)
   {
-    // LED_ON();
     lv_task_handler();
     vTaskDelay(5);
   }

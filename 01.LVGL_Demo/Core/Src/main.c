@@ -27,7 +27,6 @@ int main(void)
   HAL_Init();
   Key_Init();
   LED_Init();
-  TIM6_Init();
 
   SystemClock_Config();
 
@@ -51,37 +50,11 @@ int main(void)
   delay_ms(1000);
   LCD_Fill(0, 0, LCD_W, LCD_H, BLACK);
 
-  delay_ms(1000);
-
   // LVGL init
   lv_init();
   lv_port_disp_init();
   lv_port_indev_init();
   delay_ms(500);
-
-  // lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
-  // lv_obj_set_size(switch_obj, 100, 50);
-  // lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
-  // 按钮
-  lv_obj_t *myBtn = lv_btn_create(lv_scr_act());                               // 创建按钮; 父对象：当前活动屏幕
-  lv_obj_set_pos(myBtn, 10, 90);                                               // 设置坐标
-  lv_obj_set_size(myBtn, 100, LV_SIZE_CONTENT);                                             // 设置
-
-  lv_obj_t *label_btn = lv_label_create(myBtn);                                // 创建文本标签，父对象：上面的btn按钮
-    lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);                              // 对齐于：父对象
-    lv_label_set_text(label_btn, "Test");                                        // 设置标签的文本
-
-
- 
-
-  while (1)
-  {
-    lv_timer_handler();
-    delay_ms(5);
-  }
-  
-
-
 
   /* USER CODE END 2 */
   osKernelInitialize();

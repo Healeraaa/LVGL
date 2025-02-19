@@ -1,5 +1,4 @@
 #include "Timer.h"
-#include "lvgl.h"
 /*
  * @brief  初始化基础定时器 TIM6
  */
@@ -15,7 +14,7 @@ void TIM6_Init(void)
     // 配置定时器
     TIM_InitStruct.Prescaler = 8400-1;                    // 设置预分频器为 8399（84 MHz / 8400 = 10 kHz）
     TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP; // 设置计数模式为向上计数
-    TIM_InitStruct.Autoreload = 10-1;                    // 设置自动重装载值为 9999，计数到 10000 时触发中断（每秒中断一次）
+    TIM_InitStruct.Autoreload = 10000-1;                    // 设置自动重装载值为 9999，计数到 10000 时触发中断（每秒中断一次）
     LL_TIM_Init(TIM6, &TIM_InitStruct);                 // 应用配置
 
     // 禁用自动重装载预加载功能（ARR 修改立即生效）
@@ -63,8 +62,7 @@ void TIM6_DAC_IRQHandler(void)
 {
     if (LL_TIM_IsActiveFlag_UPDATE(TIM6)) // 检查更新中断标志
     {
-        // printf("TIM6正在运行,优先级为:6\r\n");
-        lv_tick_inc(1);
+        printf("TIM6正在运行,优先级为:6\r\n");
         LL_TIM_ClearFlag_UPDATE(TIM6); // 清除更新中断标志
     }
 }

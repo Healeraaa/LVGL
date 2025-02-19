@@ -27,7 +27,14 @@ Project File Date:  02/19/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'D:\Keil\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LVGL'
-"FreeRTOS\FreeRTOS.axf" - 0 Error(s), 0 Warning(s).
+compiling User_TasksInit.c...
+..\Tasks\Src\User_TasksInit.c(39): warning:  #177-D: variable "data" was declared but never referenced
+    uint8_t data = 0;
+..\Tasks\Src\User_TasksInit.c: 1 warning, 0 errors
+linking...
+Program Size: Code=158432 RO-data=33048 RW-data=684 ZI-data=96756  
+FromELF: creating hex file...
+"FreeRTOS\FreeRTOS.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -49,7 +56,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE@6.1.0
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>
