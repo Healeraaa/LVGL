@@ -781,6 +781,21 @@
                 ]
               }
             ]
+          },
+          {
+            "name": "LVGL",
+            "files": [],
+            "folders": [
+              {
+                "name": "GUI_APP",
+                "files": [
+                  {
+                    "path": "../Middlewares/LVGL/GUI_APP/demos/stress/lv_demo_stress.c"
+                  }
+                ],
+                "folders": []
+              }
+            ]
           }
         ]
       },
@@ -1028,7 +1043,8 @@
           "../Middlewares/LVGL/GUI/lvgl",
           "../Middlewares/LVGL/GUI/lvgl/src",
           "../Middlewares/LVGL/GUI/lvgl/examples/porting",
-          ".cmsis/include",
+          "../Middlewares/LVGL/GUI_APP/demos",
+          "../Middlewares/LVGL/GUI_APP/demos/stress",
           "RTE/_LVGL"
         ],
         "libList": [],
