@@ -20,6 +20,7 @@
 /* Tasks ---------------------------------------------------------------------*/
 TaskHandle_t SPITEST_Task_Handler;
 TaskHandle_t LEDToggle_Task_Handler;
+TaskHandle_t RGBLEDToggle_Task_Handler;
 TaskHandle_t LvHandlerTask_Handle;
 TaskHandle_t LVGL_Task_Handler;
 
@@ -56,6 +57,24 @@ void LEDToggle_Task(void *argument)
     vTaskDelay(500);
   }
 }
+
+/**
+ * @brief  RGB间隔0.5s变化一次
+ * @param  argument: Not used
+ * @retval None
+ */
+void RGBLEDToggle_Task(void *argument)
+{
+  uint8_t Color = 0;
+  while (1)
+  {
+    (++Color>6) ? (Color = 0):(Color=Color);
+    LED1_RGB_ON(Color);
+    vTaskDelay(500);
+  }
+}
+
+
 
 /**
  * @brief  LVGL实验
@@ -98,6 +117,7 @@ void User_Tasks_Init(void)
 
   // xTaskCreate(SPITEST_Task, "SPITEST_Task", 128, NULL, 9, &SPITEST_Task_Handler);
   xTaskCreate(LEDToggle_Task, "LEDToggle_Task", 128, NULL, 1, &LEDToggle_Task_Handler);
+  xTaskCreate(RGBLEDToggle_Task, "RGBLEDToggle_Task", 128, NULL, 1, &RGBLEDToggle_Task_Handler);
 
 }
 

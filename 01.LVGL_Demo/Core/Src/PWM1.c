@@ -1,6 +1,6 @@
 #include "PWM1.h"
 
-#define AUTORELOAD 65535 //PWM1自动重装载值
+#define AUTORELOAD 300-1 //PWM1自动重装载值
 
 void PWM1_Init(void)
 {
@@ -15,7 +15,7 @@ void PWM1_Init(void)
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 
   // 配置TIM3的基本参数
-  TIM_InitStruct.Prescaler = 0;                             // 预分频器为0，即不分频
+  TIM_InitStruct.Prescaler = 168 - 1;                             // 100分频
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;       // 向上计数模式
   TIM_InitStruct.Autoreload = AUTORELOAD;                        // 自动重装载值，最大为65535
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1; // 时钟分频为1

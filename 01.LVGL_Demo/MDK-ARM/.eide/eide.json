@@ -788,11 +788,7 @@
             "folders": [
               {
                 "name": "GUI_APP",
-                "files": [
-                  {
-                    "path": "../Middlewares/LVGL/GUI_APP/demos/stress/lv_demo_stress.c"
-                  }
-                ],
+                "files": [],
                 "folders": []
               }
             ]

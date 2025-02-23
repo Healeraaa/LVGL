@@ -27,6 +27,7 @@ int main(void)
   HAL_Init();
   Key_Init();
   LED_Init();
+  LED1_RGB_Init();
 
   SystemClock_Config();
 
@@ -44,8 +45,8 @@ int main(void)
   LCD_Init();
   delay_ms(1000);
   LCD_Fill(0, 0, LCD_W, LCD_H, WHITE);
-  delay_ms(10);
-  // LCD_Set_Light(50);
+  delay_ms(50);
+  LCD_Set_Light(20);
   LCD_ShowString(72, LCD_H / 2 - 20, (uint8_t *)"Welcome!", BLUE,RED, 24, 0); // 12*6,16*8,24*12,32*16
   delay_ms(1000);
   LCD_Fill(0, 0, LCD_W, LCD_H, BLACK);
