@@ -123,4 +123,3 @@ freertos\lv_theme_basic.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\themes\basic\.
 freertos\lv_theme_basic.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\themes\basic\../../../../src/extra/libs/freetype/lv_freetype.h
 freertos\lv_theme_basic.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\themes\basic\../../../../src/extra/libs/rlottie/lv_rlottie.h
 freertos\lv_theme_basic.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\themes\basic\../../../../src/extra/libs/ffmpeg/lv_ffmpeg.h
-freertos\lv_theme_basic.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\themes\basic\../../../misc/lv_gc.h

@@ -149,7 +149,7 @@ extern "C" {
 #endif
 
 #ifndef INCLUDE_xTaskGetHandle
-	#define INCLUDE_xTaskGetHandle 1
+	#define INCLUDE_xTaskGetHandle 0
 #endif
 
 #ifndef INCLUDE_uxTaskGetStackHighWaterMark
@@ -775,7 +775,7 @@ hold explicit before calling the code. */
 #endif
 
 #ifndef configUSE_QUEUE_SETS
-	#define configUSE_QUEUE_SETS 1
+	#define configUSE_QUEUE_SETS 0
 #endif
 
 #ifndef portTASK_USES_FLOATING_POINT
@@ -799,7 +799,7 @@ hold explicit before calling the code. */
 #endif
 
 #ifndef configUSE_STATS_FORMATTING_FUNCTIONS
-	#define configUSE_STATS_FORMATTING_FUNCTIONS 1
+	#define configUSE_STATS_FORMATTING_FUNCTIONS 0
 #endif
 
 #ifndef portASSERT_IF_INTERRUPT_PRIORITY_INVALID

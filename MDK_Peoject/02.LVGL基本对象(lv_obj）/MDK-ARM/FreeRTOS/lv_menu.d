@@ -54,7 +54,3 @@ freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../..
 freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../../core/lv_obj_class.h
 freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../../core/lv_event.h
 freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../../core/lv_group.h
-freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../layouts/flex/lv_flex.h
-freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../../widgets/lv_label.h
-freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../../widgets/lv_btn.h
-freertos\lv_menu.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\menu\../../../widgets/lv_img.h

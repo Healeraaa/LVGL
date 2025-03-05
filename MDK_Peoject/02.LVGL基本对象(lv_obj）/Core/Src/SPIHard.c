@@ -77,6 +77,47 @@ void SPI1_Transmit8(uint8_t data)
   }
 }
 
+void SPI1_Transmit8_Time(uint8_t data, uint32_t Timeout)
+{
+  uint32_t tickstart = HAL_GetTick(); // 获取当前时间戳
+
+  // 等待发送缓冲区为空（可以写入新数据）
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1))
+  {
+    // 检查是否超时
+    if ((HAL_GetTick() - tickstart) >= Timeout)
+    {
+      // 超时退出
+      return; // 可以根据需要处理超时错误
+    }
+  }
+
+  // 发送数据
+  LL_SPI_TransmitData8(SPI1, data);
+
+  // 等待数据从发送缓冲区转移到移位寄存器
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1))
+  {
+    // 检查是否超时
+    if ((HAL_GetTick() - tickstart) >= Timeout)
+    {
+      // 超时退出
+      return; // 可以根据需要处理超时错误
+    }
+  }
+
+  // 等待 SPI 总线空闲（数据从移位寄存器发送完成）
+  while (LL_SPI_IsActiveFlag_BSY(SPI1))
+  {
+    // 检查是否超时
+    if ((HAL_GetTick() - tickstart) >= Timeout)
+    {
+      // 超时退出
+      return; // 可以根据需要处理超时错误
+    }
+  }
+}
+
 void SPI1_Transmit16(uint16_t data)
 {
   // 等待发送缓冲区为空（可以写入新数据）
@@ -91,6 +132,47 @@ void SPI1_Transmit16(uint16_t data)
   }
   while (LL_SPI_IsActiveFlag_BSY(SPI1))
   {
+  }
+}
+
+void SPI1_Transmit16_Time(uint16_t data, uint32_t Timeout)
+{
+  uint32_t tickstart = HAL_GetTick(); // 获取当前时间戳
+
+  // 等待发送缓冲区为空（可以写入新数据）
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1))
+  {
+    // 检查是否超时
+    if ((HAL_GetTick() - tickstart) >= Timeout)
+    {
+      // 超时退出
+      return; // 可以根据需要处理超时错误
+    }
+  }
+
+  // 发送数据
+  LL_SPI_TransmitData16(SPI1, data);
+
+  // 等待数据从发送缓冲区转移到移位寄存器
+  while (!LL_SPI_IsActiveFlag_TXE(SPI1))
+  {
+    // 检查是否超时
+    if ((HAL_GetTick() - tickstart) >= Timeout)
+    {
+      // 超时退出
+      return; // 可以根据需要处理超时错误
+    }
+  }
+
+  // 等待 SPI 总线空闲（数据从移位寄存器发送完成）
+  while (LL_SPI_IsActiveFlag_BSY(SPI1))
+  {
+    // 检查是否超时
+    if ((HAL_GetTick() - tickstart) >= Timeout)
+    {
+      // 超时退出
+      return; // 可以根据需要处理超时错误
+    }
   }
 }
 
@@ -113,9 +195,11 @@ void SPI1_SetDataWidth(uint32_t dataWidth)
 
 void SPI1_Transmit_DMA(uint8_t *data, uint32_t size)
 {
-  while (LL_DMA_IsEnabledStream(DMA2, LL_DMA_STREAM_3)){}
-  
-  LL_DMA_ClearFlag_TC3(DMA2);  // 清除传输完成标志
+  while (LL_DMA_IsEnabledStream(DMA2, LL_DMA_STREAM_3))
+  {
+  }
+
+  LL_DMA_ClearFlag_TC3(DMA2); // 清除传输完成标志
 
   LL_DMA_DisableStream(DMA2, LL_DMA_STREAM_3);
 
@@ -127,13 +211,10 @@ void SPI1_Transmit_DMA(uint8_t *data, uint32_t size)
 
   // 设置DMA传输的数据长度
   LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_3, size);
-  
 
   // 使能DMA流
   LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_3);
 
-
-  
   // 等待DMA传输完成（可选）
   while (LL_DMA_IsEnabledStream(DMA2, LL_DMA_STREAM_3))
   {
@@ -143,11 +224,6 @@ void SPI1_Transmit_DMA(uint8_t *data, uint32_t size)
   {
     /* code */
   }
-  
-  LL_DMA_ClearFlag_TC3(DMA2);// 清除传输完成标志
 
-
-
+  LL_DMA_ClearFlag_TC3(DMA2); // 清除传输完成标志
 }
-
-

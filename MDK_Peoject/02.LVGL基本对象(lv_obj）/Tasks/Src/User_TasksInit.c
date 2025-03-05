@@ -8,6 +8,7 @@
 // #include "OLED.h"
 // #include "key.h"
 #include "LED.h"
+#include "ui_mainstart.h"
 
 /* Private typedef -----------------------------------------------------------*/
 
@@ -28,7 +29,8 @@ TaskHandle_t LVGL_Task_Handler;
 
 /* Events --------------------------------------------------------------------*/
 
-
+// 定义互斥锁
+SemaphoreHandle_t xMutex;
 
 /**
  * @brief  测试SPI发送
@@ -68,13 +70,11 @@ void RGBLEDToggle_Task(void *argument)
   uint8_t Color = 0;
   while (1)
   {
-    (++Color>6) ? (Color = 0):(Color=Color);
+    (++Color > 6) ? (Color = 0) : (Color = Color);
     LED1_RGB_ON(Color);
     vTaskDelay(500);
   }
 }
-
-
 
 /**
  * @brief  LVGL实验
@@ -83,26 +83,24 @@ void RGBLEDToggle_Task(void *argument)
  */
 void LVGL_Task(void *argument)
 {
-  lv_obj_t *myBtn = lv_btn_create(lv_scr_act());                               // 创建按钮; 父对象：当前活动屏幕
-  lv_obj_set_pos(myBtn, 10, 100);                                               // 设置坐标
-  lv_obj_set_size(myBtn, 100, 50);                                             // 设置
+  // ui_mainstart();
+  lv_obj_t *switch_obj = lv_switch_create(lv_scr_act());
+  lv_obj_set_size(switch_obj, 100, 50);
+  lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
 
-  // lv_obj_t *label_btn = lv_label_create(myBtn);                                // 创建文本标签，父对象：上面的btn按钮
-  //   lv_obj_align(label_btn, LV_ALIGN_CENTER, 0, 0);                              // 对齐于：父对象
-  //   lv_label_set_text(label_btn, "Test");                                        // 设置标签的文本
-  LED_ON();
+  // LED_ON();
   while (1)
   {
+    // 使用互斥锁来保护LVGL操作
+    if (pdTRUE == xSemaphoreTake(xMutex, portMAX_DELAY))
+    {
+      xSemaphoreGive(xMutex); // 释放互斥锁
+    }
     vTaskDelay(10);
   }
 }
 
-
 void LvHandlerTask(void *argument);
-
-
-
-
 
 /**
  * @brief  FreeRTOS initialization
@@ -111,14 +109,13 @@ void LvHandlerTask(void *argument);
  */
 void User_Tasks_Init(void)
 {
-  xTaskCreate(LvHandlerTask, "LvHandlerTask", 128*24, NULL, 2, &LvHandlerTask_Handle);
+  // 创建互斥锁
+  xMutex = xSemaphoreCreateMutex();
+
+  xTaskCreate(LvHandlerTask, "LvHandlerTask", 128 * 24, NULL, 2, &LvHandlerTask_Handle);
   xTaskCreate(LVGL_Task, "LVGL_Task", 128, NULL, 3, &LVGL_Task_Handler);
-
-
-  // xTaskCreate(SPITEST_Task, "SPITEST_Task", 128, NULL, 9, &SPITEST_Task_Handler);
   xTaskCreate(LEDToggle_Task, "LEDToggle_Task", 128, NULL, 1, &LEDToggle_Task_Handler);
   xTaskCreate(RGBLEDToggle_Task, "RGBLEDToggle_Task", 128, NULL, 1, &RGBLEDToggle_Task_Handler);
-
 }
 
 /**
@@ -142,9 +139,11 @@ void LvHandlerTask(void *argument)
 {
   while (1)
   {
-    lv_task_handler();
+    if (pdTRUE == xSemaphoreTake(xMutex, portMAX_DELAY))
+    {
+      lv_task_handler();      // 执行LVGL的任务处理
+      xSemaphoreGive(xMutex); // 释放互斥锁
+    }
     vTaskDelay(5);
   }
 }
-
-

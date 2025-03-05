@@ -65,7 +65,8 @@ void LCD_GPIO_Init(void)
  */
 void LCD_Write_Bus(uint8_t data)
 {
-    SPI1_Transmit8(data);
+    // SPI1_Transmit8(data);
+    SPI1_Transmit8_Time(data,1);
 }
 
 /**
@@ -86,7 +87,8 @@ void LCD_WR_DATA8(uint8_t data)
 void LCD_WR_DATA(uint16_t Data)
 {
     SPI1_SetDataWidth(LL_SPI_DATAWIDTH_16BIT);
-    SPI1_Transmit16(Data);
+    // SPI1_Transmit16(Data);
+    SPI1_Transmit16_Time(Data,1);
     SPI1_SetDataWidth(LL_SPI_DATAWIDTH_8BIT);
 }
 
@@ -120,6 +122,7 @@ void LCD_Address_Set(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
     LCD_WR_DATA(y2);
     LCD_WR_REG(0x2c); // 储存器写
 }
+
 
 /**
  * @brief  LCD调节背光

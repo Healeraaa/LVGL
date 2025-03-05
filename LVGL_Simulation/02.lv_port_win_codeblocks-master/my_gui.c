@@ -2,119 +2,44 @@
 #include "lvgl.h"
 #include <stdio.h>
 
-lv_obj_t * obj1;
-lv_obj_t * obj2;
-static void my_event_cb(lv_event_t * event);
+
 
 void my_gui(void)
 {
-    //lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
-    //lv_obj_set_size(switch_obj, 120, 60);
-    //lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+    /*标签部件*/
+    lv_obj_t *label = lv_label_create(lv_scr_act());
 
-    /*
-    部件的基本属性
-    1.大小（size）
-    2.位置（position）
-    3.对齐（alignment）
-    4.样式（styles）
-    5.事件（events）
-    */
-////    1.大小（size）
-//    lv_obj_t *obj1 = lv_obj_create(lv_scr_act());
-//    lv_obj_set_width(obj1, 200);
-//    lv_obj_set_height(obj1, 100);
-//    lv_obj_set_size(obj1, 200, 200);
+//    /*设置文本的三种方式*/
+//    lv_label_set_text(label,"Hello lvgl");                                                  //直接设置文本，储存文本的内存动态分配
+//    lv_label_set_text_static(label,"Hello\nlvgl");                                          //（慎用）文本不存储在动态内存，而是在指定的缓冲区中
+//    lv_label_set_text_fmt(label,"Value:%d",50);                                             //格式化显示文本，类似printf
+//
+//    /*设置文本样式*/
+//    lv_obj_set_style_bg_color( label, lv_color_hex(0xffe1d4), LV_STATE_DEFAULT );           //背景颜色
+//    lv_obj_set_style_bg_opa(label,175,LV_STATE_DEFAULT);                                    //透明度
+//    lv_obj_set_style_text_font( label, &lv_font_montserrat_30, LV_STATE_DEFAULT );          //字体大小
+//    lv_obj_set_style_text_color( label, lv_color_hex(0xf7b37b), LV_STATE_DEFAULT );         //文本颜色
+//
+//    /*设置个别文本的字体颜色*/
+//    lv_label_set_recolor( label, true ); 						                            // 开启重新着色功能
+//    lv_label_set_text( label, "hallo #ff0000 lvgl# " );			                            // 单独设置颜色
 
-////    2.位置（position）
-//    lv_obj_t *obj1 = lv_obj_create(lv_scr_act());
-//    lv_obj_set_x(obj1, 40);
-//    lv_obj_set_y(obj1, 40);
-//    lv_obj_set_pos(obj1, 20, 80);
+    /*长文本模式*/
+    lv_label_set_text(label,"Hello lvgl Hello lvgl Hello lvgl Hello lvgl Hello lvgl");
+    lv_obj_set_size(label,100, 50);
+    lv_label_set_long_mode(label, LV_LABEL_LONG_CLIP);             /*LV_LABEL_LONG_WRAP,默认模式, 如果部件大小已固定，超出的文本将被剪切
+                                                                    LV_LABEL_LONG_DOT,将 label 右下角的最后 3 个字符替换为点…
+                                                                    LV_LABEL_LONG_SCROLL, 来回滚动
+                                                                    LV_LABEL_LONG_SCROLL_CIRCULAR,循环滚动
+                                                                    LV_LABEL_LONG_CLIP,直接剪切掉部件外面的文本部分 */
 
-////    3.对齐（alignment）
-//    lv_obj_t *obj1 = lv_obj_create(lv_scr_act());
-////    3.1.参照父对象对齐
-//    lv_obj_set_align(obj1, LV_ALIGN_CENTER);
-////    3.2.参照父对象对齐，再进行偏移
-//    lv_obj_align(obj1, LV_ALIGN_CENTER, 50, 50);
-////    3.3.参照其他对象对齐（无父子关系）
-//    lv_obj_t *obj2 = lv_obj_create(lv_scr_act());
-//    lv_obj_set_size(obj1, 100, 100);
-//    lv_obj_set_pos(obj2, 0, 0);
-//    lv_obj_align_to(obj2, obj1, LV_ALIGN_OUT_RIGHT_MID, 0, 0);
-
-////    4.样式（styles）
-////    4.1添加样式
-////    4.1.1添加普通样式
-//    static lv_style_t style; 									                /* 定义样式变量 */
-//    lv_style_init(&style); 									                /* 初始化样式 */
-//    lv_style_set_bg_color(&style, lv_color_hex(0xe8e560)); 				    /* 设置背景颜色 */
-//    lv_obj_t * obj1 = lv_obj_create(lv_scr_act()); 						    /* 创建一个部件 */
-//    lv_obj_add_style(obj1, & style, LV_STATE_DEFAULT); 					    /* 设置部件的样式 */
-
-////    4.1.1添加本地样式
-//    lv_obj_t * obj1 = lv_obj_create(lv_scr_act()); 						        /* 创建一个部件 */
-//    lv_obj_set_style_bg_color(obj1, lv_color_hex(0xf4b183),LV_STATE_PRESSED);	/* 设置部件的样式 */
-
-////    4.2.设置边框样式
-//    lv_obj_t * obj1 = lv_obj_create(lv_scr_act());
-//    lv_obj_align(obj1, LV_ALIGN_CENTER, 0, 0);
-//    lv_obj_set_style_border_color(obj1,lv_color_hex(0xf4b183),LV_STATE_DEFAULT);//边框颜色
-//    lv_obj_set_style_border_width(obj1,10,LV_STATE_DEFAULT);//边框宽度
-//    lv_obj_set_style_border_opa(obj1,50,LV_STATE_DEFAULT);//边框透明度
-
-////    4.3.设置轮廓样式
-//    lv_obj_t * obj1 = lv_obj_create(lv_scr_act());
-//    lv_obj_align(obj1, LV_ALIGN_CENTER, 0, 0);
-//    lv_obj_set_style_outline_color(obj1,lv_color_hex(0xf4b183),LV_STATE_DEFAULT);//轮廓颜色
-//    lv_obj_set_style_outline_width(obj1,10,LV_STATE_DEFAULT);//轮廓宽度
-//    lv_obj_set_style_outline_opa(obj1,50,LV_STATE_DEFAULT);//轮廓透明度
-
-////    4.4.单独设置部件某个部分的样式
-//    lv_obj_t * slider = lv_slider_create(lv_scr_act());//滑块部件
-//    lv_obj_set_size(slider, 100, 20);
-//    lv_obj_set_align(slider, LV_ALIGN_CENTER);
-//    lv_obj_set_style_bg_color(slider,lv_color_hex(0xf4b183),LV_STATE_DEFAULT | LV_PART_INDICATOR);//修改指示器（LV_PART_INDICATOR）样式
-//    lv_obj_set_style_bg_color(slider,lv_color_hex(0xf4b183),LV_STATE_DEFAULT | LV_PART_KNOB);//修改手柄（LV_PART_KNOB）样式
-
-//    5.事件（events）
-    obj1 = lv_obj_create(lv_scr_act());
-    lv_obj_add_event_cb(obj1,my_event_cb,LV_EVENT_CLICKED,NULL);
-    lv_obj_add_event_cb(obj1,my_event_cb,LV_EVENT_PRESSING,NULL);
-    lv_obj_set_size(obj1, 200, 200);
-
-    obj2 = lv_obj_create(lv_scr_act());
-    lv_obj_add_event_cb(obj2,my_event_cb,LV_EVENT_CLICKED,NULL);
 
 
 }
 
-static void my_event_cb(lv_event_t * event)//事件回调函数
-{
-    lv_obj_t *target = lv_event_get_target(event);//获取触发事件的部件
-    lv_event_code_t code = lv_event_get_code(event); //获取触发事件类型
-    if(target == obj1)
-    {
-        if(code == LV_EVENT_CLICKED)
-        {
-            printf("obj1 LV_EVENT_CLICKED\n");
-        }
-        else if(code == LV_EVENT_PRESSING)
-        {
-            printf("obj1 LV_EVENT_PRESSING\n");
-        }
-    }
-    else if(target == obj2)
-    {
-        if(code == LV_EVENT_CLICKED)
-        {
-            printf("obj2 LV_EVENT_CLICKED\n");
-        }
-    }
 
 
-}
+
 
 
 

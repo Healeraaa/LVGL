@@ -6,7 +6,10 @@
     ],
     "settings": {
         "files.associations": {
-            "led.h": "c"
+            "lv_conf.h": "c",
+            "user_tasksinit.h": "c",
+            "freertos.h": "c",
+            "freertosconfig.h": "c"
         }
     },
     "extensions": {}

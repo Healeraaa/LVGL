@@ -55,7 +55,7 @@ int main(void)
   lv_init();
   lv_port_disp_init();
   lv_port_indev_init();
-  delay_ms(500);
+  delay_ms(100);
 
   /* USER CODE END 2 */
   osKernelInitialize();

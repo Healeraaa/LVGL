@@ -55,6 +55,3 @@ freertos\lv_keyboard.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\keyboard\
 freertos\lv_keyboard.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\keyboard\../../../widgets/../core/lv_obj_class.h
 freertos\lv_keyboard.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\keyboard\../../../widgets/../core/lv_event.h
 freertos\lv_keyboard.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\keyboard\../../../widgets/../core/lv_group.h
-freertos\lv_keyboard.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\keyboard\../../../widgets/lv_textarea.h
-freertos\lv_keyboard.o: ..\Middlewares\LVGL\GUI\lvgl\src\extra\widgets\keyboard\../../../widgets/lv_label.h
-freertos\lv_keyboard.o: D:\Keil\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
