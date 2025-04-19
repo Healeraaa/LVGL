@@ -111,7 +111,7 @@ void User_Tasks_Init(void)
 {
   // 创建互斥锁
   xMutex = xSemaphoreCreateMutex();
-
+  
   xTaskCreate(LvHandlerTask, "LvHandlerTask", 128 * 24, NULL, 2, &LvHandlerTask_Handle);
   xTaskCreate(LVGL_Task, "LVGL_Task", 128, NULL, 3, &LVGL_Task_Handler);
   xTaskCreate(LEDToggle_Task, "LEDToggle_Task", 128, NULL, 1, &LEDToggle_Task_Handler);
