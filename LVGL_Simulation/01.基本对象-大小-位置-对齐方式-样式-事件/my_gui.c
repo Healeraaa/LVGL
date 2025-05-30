@@ -21,10 +21,10 @@ void my_gui(void)
     5.事件（events）
     */
 ////    1.大小（size）
-//    lv_obj_t *obj1 = lv_obj_create(lv_scr_act());
-//    lv_obj_set_width(obj1, 200);
-//    lv_obj_set_height(obj1, 100);
-//    lv_obj_set_size(obj1, 200, 200);
+    lv_obj_t *obj1 = lv_obj_create(lv_scr_act());
+    lv_obj_set_width(obj1, 200);
+    lv_obj_set_height(obj1, 100);
+    lv_obj_set_size(obj1, 200, 200);
 
 ////    2.位置（position）
 //    lv_obj_t *obj1 = lv_obj_create(lv_scr_act());
@@ -79,13 +79,13 @@ void my_gui(void)
 //    lv_obj_set_style_bg_color(slider,lv_color_hex(0xf4b183),LV_STATE_DEFAULT | LV_PART_KNOB);//修改手柄（LV_PART_KNOB）样式
 
 //    5.事件（events）
-    obj1 = lv_obj_create(lv_scr_act());
-    lv_obj_add_event_cb(obj1,my_event_cb,LV_EVENT_CLICKED,NULL);
-    lv_obj_add_event_cb(obj1,my_event_cb,LV_EVENT_PRESSING,NULL);
-    lv_obj_set_size(obj1, 200, 200);
-
-    obj2 = lv_obj_create(lv_scr_act());
-    lv_obj_add_event_cb(obj2,my_event_cb,LV_EVENT_CLICKED,NULL);
+//    obj1 = lv_obj_create(lv_scr_act());
+//    lv_obj_add_event_cb(obj1,my_event_cb,LV_EVENT_CLICKED,NULL);
+//    lv_obj_add_event_cb(obj1,my_event_cb,LV_EVENT_PRESSING,NULL);
+//    lv_obj_set_size(obj1, 200, 200);
+//
+//    obj2 = lv_obj_create(lv_scr_act());
+//    lv_obj_add_event_cb(obj2,my_event_cb,LV_EVENT_CLICKED,NULL);
 
 
 }

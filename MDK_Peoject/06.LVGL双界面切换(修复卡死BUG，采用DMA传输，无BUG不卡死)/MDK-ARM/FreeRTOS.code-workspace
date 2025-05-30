@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "lcd_init.h": "c"
+        }
+    },
+    "extensions": {}
+}
